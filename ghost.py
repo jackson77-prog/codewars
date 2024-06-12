@@ -20,49 +20,56 @@ Windowsill_10 = "SSSSSSSSS"
 
 the_deads = ['Yojne', 'Xenna', 'Verap', 'Ebyam', 'Teseb', 'Ycuag', 'Onets', 'Skcaw', 'Yrovi', 'Tpets', 'Lizuf', 'Girnu']
 
+first_order = [0,11,1,10,2,9,3,8,4,7,5,6]
+second_order = [3,2,4,1,5,0,6,11,7,10,8,9]
+third_order = [6,5,7,4,8,3,9,2,10,1,11,0]
+fourth_order = [9,8,10,7,11,6,0,5,1,4,2,3]
+
 def order(position,the_dead):
     
     for i in Earthenware_1:
         for dead in the_deads:
             if(dead[0] == i):
-                if(position[0] == "_____"):
-                    position[0] = dead
-                elif(position[11] == "_____"):
-                    position[11] = dead
-                elif(position[1] == "_____"):
-                    position[1] = dead
+                order_1(first_order,dead)
 
     for i in Waterfall_4:
         for dead in the_deads:
             if(dead[0] == i):
-                if(position[3] == "_____"):
-                    position[3] = dead
-                elif(position[2] == "_____"):
-                    position[2] = dead
-                elif(position[4] == "_____"):
-                    position[4] = dead
+                order_2(second_order,dead)
 
     for i in Fireplace_7:
         for dead in the_deads:
             if(dead[0] == i):
-                if(position[6] == "_____"):
-                    position[6] = dead
-                elif(position[5] == "_____"):
-                    position[5] = dead
-                elif(position[7] == "_____"):
-                    position[7] = dead
+                order_3(third_order,dead)
 
     for i in Windowsill_10:
         for dead in the_deads:
             if(dead[0] == i):
-                if(position[9] == "_____"):
-                    position[9] = dead
-                elif(position[11] == "_____"):
-                    position[11] = dead
-                elif(position[8] == "_____"):
-                    position[8] = dead
+                order_4(fourth_order,dead)
 
-       
+def order_1(first_order,dead):
+    for order in fourth_order:
+        if(position[order] == "_____"):
+            position[order] = dead
+            break
+
+def order_2(second_order,dead):
+    for order in second_order:
+        if(position[order] == "_____"):
+            position[order] = dead
+            break
+
+def order_3(third_order,dead):
+    for order in third_order:
+        if(position[order] == "_____"):
+            position[order] = dead
+            break
+
+def order_4(fourth_order,dead):
+    for order in fourth_order:
+        if(position[order] == "_____"):
+            position[order] = dead
+            break
 
 order(position, the_deads)
 print(position)
